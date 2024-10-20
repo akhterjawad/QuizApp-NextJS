@@ -9,7 +9,7 @@ interface ResultsProps {
 
 const Results: React.FC<ResultsProps> = ({ correctAnswers, totalQuestions, onRetry }) => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center  p-5">
+    <div className="min-h-screen flex flex-col items-center justify-center p-5">
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-md text-center">
         <h1 className="text-4xl font-bold text-blue-700 mb-4">Quiz Results</h1>
         <p className="text-xl mb-6">

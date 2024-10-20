@@ -9,13 +9,14 @@ import Swal from 'sweetalert2'; // Import SweetAlert2
 const page = () => {
   interface QuizQuestion {
     id: string;
-    question: string;
+    question: any;
+    text: string;
     correctAnswer: string;
     incorrectAnswers: string[];
   }
 
   let selectedOption = useRef<(HTMLInputElement | null)[]>([]);
-  let [quizData, setQuizData] = useState<QuizQuestion[] | null>(null);
+  let [quizData, setQuizData] = useState<QuizQuestion[]>([]);
   let [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [correctAnswers, setCorrectAnswers] = useState<number>(0);
   const [isQuizCompleted, setIsQuizCompleted] = useState<boolean>(false);
@@ -24,6 +25,7 @@ const page = () => {
   useEffect(() => {
     axios('https://the-trivia-api.com/v2/questions')
       .then((response) => {
+        console.log(response.data)
         setQuizData(response.data);
         setLoading(false); // Set loading to false after data is fetched
       })
@@ -103,9 +105,12 @@ const page = () => {
                   name="quiz"
                   type="radio"
                   value={answer}
-                  ref={el => selectedOption.current[index] = el}
+                  ref={el => {
+                    selectedOption.current[index] = el;
+                  }}
                   className="mr-2"
                 />
+
                 <label className="text-lg" htmlFor={answer}>
                   {answer}
                 </label>
