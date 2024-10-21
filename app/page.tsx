@@ -2,9 +2,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import Button from '@mui/material/Button';
-import Results from './Results'; // Import the Results component
-import Spinner from './Spinner'; // Import the Spinner component
-import Swal from 'sweetalert2'; // Import SweetAlert2
+import Results from './Results';
+import Spinner from './Spinner';
+import Swal from 'sweetalert2';
 
 const page = () => {
   interface QuizQuestion {
@@ -30,7 +30,7 @@ const page = () => {
         setLoading(false); // Set loading to false after data is fetched
       })
       .catch((error) => {
-        Swal.fire('Error!', 'Check your internet connection', 'error'); // Use SweetAlert for error
+        Swal.fire('Error!', 'Check your internet connection', 'error');
         console.log(error);
       });
   }, []);
@@ -77,7 +77,7 @@ const page = () => {
   }
 
   if (loading) {
-    return <Spinner />; // Show spinner while loading
+    return <Spinner />;
   }
 
   return (
