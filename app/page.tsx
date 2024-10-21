@@ -20,7 +20,7 @@ const page = () => {
   let [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [correctAnswers, setCorrectAnswers] = useState<number>(0);
   const [isQuizCompleted, setIsQuizCompleted] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true); // Loading state
+  const [loading, setLoading] = useState<boolean>(true); 
 
   useEffect(() => {
     axios('https://the-trivia-api.com/v2/questions')
